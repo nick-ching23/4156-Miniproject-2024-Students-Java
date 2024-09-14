@@ -31,3 +31,4 @@ Spy vs Mock Mockito: https://www.baeldung.com/mockito-spy
 Understanding Spy: https://stackoverflow.com/questions/15052984/what-is-the-difference-between-mocking-and-spying-when-using-mockito
 Understanding response entities: https://www.baeldung.com/spring-response-entity#:~:text=ResponseEntity%20represents%20the%20whole%20HTTP,ResponseEntity%20is%20a%20generic%20type.
 Handling loose coupling: https://stackoverflow.com/questions/14396529/warning-avoid-using-implementation-types-like-hashmap-use-the-interface-inste
+Handling UnnecessaryAnnotationValueElement: https://edstem.org/us/courses/58089/discussion/5246778
