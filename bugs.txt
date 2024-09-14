@@ -1,11 +1,11 @@
-This document outlines bugs found, the location, the problem and the solution.
+This document outlines the bugs found, the location, the problem, and the solution.
 
 COURSE BUG FIXES:
 
 1. toString() method:
     - PMD Error: N/A
-    - Problems: The toString() method does not print capacity, it also does not prefix variables with "this." adding ambiguity.
-    - Solutions: rewrite the toString() method to include capacity, prepend all variables with this.
+    - Problems: The toString() method does not print capacity, and it also does not prefix variables with "this," adding ambiguity.
+    - Solutions: rewrite the toString() method to include capacity, and prepend all variables with this.
 
     - PMD Warning: MissingOverride
     - Solution: add override
@@ -32,18 +32,18 @@ COURSE BUG FIXES:
 
 8. Field Declarations:
     - PMD Warning: FieldDeclarationsShouldBeAtTheStartOfClass
-    - Solution: Move field declaration to start of class
+    - Solution: Move the field declaration to the start of class
 
 DEPARTMENT BUG FIXES:
 
 1. toString() method:
     - PMD Error: Missing Override, DataflowAnomalyAnalysis
     - Problems: Missing @Override tag, return result is a string literal
-    - Solutions: include @Override, return actual string variable instead of string literal.
+    - Solutions: include @Override and return the actual string variable instead of the string literal.
 
 3. dropPersonFromMajor():
     - PMD Error: N/A
-    - Problems: method ignores boundary condition outlined in Javadoc
+    - Problems: The method ignores the boundary condition outlined in Javadoc
     - Solution: Include boundary condition
 
 4. getDepartmentChair():
@@ -53,13 +53,13 @@ DEPARTMENT BUG FIXES:
 
 5. addPersonToMajor():
     - PMD Error: N/A
-    - Problem: method does not use "this." prefix. This does not update the instance of major
+    - Problem: The method does not use the "this." prefix. This does not update the instance of major
     - Solution: Add this.numberOfMajors++
 
 5. getNumberOfMajors():
     - PMD Error: N/A
-    - Problems: method returns negative number of majors.
-    - Solution: return positive number of majors.
+    - Problems: The method returns a negative number of majors.
+    - Solution: return a positive number of majors.
 
 6. setCourseSelection():
     - PMD Error: N/A
@@ -76,19 +76,14 @@ MYFILEDATABASE BUG FIXES:
     - Problem: This risks calling methods on an incompletely constructed object
     - Make the deSerializeObjectFromFile() final
 
-2. saveContentsToFile() method:
-    - PMD Error: SystemPrintln
-    - Problem: Should be using System.out.println()
-    - Solution: remove System.out.println()
-
-3. deSerializeObjectFromFile() method:
+2. deSerializeObjectFromFile() method:
     - PMD Error: AvoidFileStream
-    - Problem: File stream is inefficient and can cause garbage collection problems.
+    - Problem: The file stream is inefficient and can cause garbage collection problems.
     - Solution: Utilize Files.newInputStream and Files.newBufferedReader
 
-4. saveContentsToFile() method:
+3. saveContentsToFile() method:
     - PMD Error: AvoidFileStream
-    - Problem: File stream is inefficient and can cause garbage collection problems.
+    - Problem: The file stream is inefficient and can cause garbage collection problems.
     - Solution: Utilize Files.newOutputStream and Files.newBufferedWriter
 
 ROUTE CONTROLLER BUG FIXES:
@@ -97,10 +92,6 @@ ROUTE CONTROLLER BUG FIXES:
     - PMD Error: N/A
     - Problem: This method has incorrect return values for department found, not found
     - Solution: Fix the return values of the function.
-
-    - PMD Error: N/A
-    - Problem: The exception handler had a generic response handleExpception(e). This is unclear and ambiguous
-    - Solution: return 500 Internal Server error.
 
 2. retrieveCourse():
     - PMD Error: N/A
@@ -114,9 +105,9 @@ ROUTE CONTROLLER BUG FIXES:
 
 4. setEnrollmentCount():
     - PMD Error: N/A
-    - Problem: this function does not handle setEnrollmentCount() being invalid. i.e. you cannot set enrollment
-            above course capacity or to have negative numbers. Requires fixing return values
-    - Solution: Change return responses if enrollment count is invalid.
+    - Problem: this function does not handle setEnrollmentCount() being invalid. i.e., you cannot set enrollment
+            above course capacity or have negative numbers. Requires fixing return values
+    - Solution: Change return responses if the enrollment count is invalid.
 
 5. findCourseTime():
     - PMD ERROR: N/A
@@ -124,12 +115,16 @@ ROUTE CONTROLLER BUG FIXES:
     - Solution: Fix return message to include course time.
 
 -----------------------------
-Main errors fixed by PMD:
+Main Warnings fixed by PMD:
 
 - LooseCoupling (Swapped HashMap to Map)
 - UnnecessaryAnnotationValueElement (remove value =)
 
+-----------------------------
+Considerations for more robust testing: 
 
+Many of the exceptions handled in the RuoteController issue generic exceptions. I believe making more specific return 
+codes and messages would be valuable moving forward (if I were to with this project). 
 
 
 
