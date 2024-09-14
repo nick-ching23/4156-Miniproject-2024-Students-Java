@@ -9,6 +9,9 @@ Uni: nc2935
 Static Analyzer (PMD)
 - Command to run:  pmd check -d ./src -R rulesets/java/quickstart.xml -f text
 
+Checkstyle (jacoco) 
+- Command to run: mvn jacoco:report
+
 Checkstyle: 
 - Command to run: mvn checkstyle:check
 
